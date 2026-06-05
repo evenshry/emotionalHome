@@ -88,7 +88,7 @@ function EmotionCards({ onComplete }: EmotionCardsProps) {
     setHoveredIndex(null);
   };
 
-  const getTotalEmotion = () => {
+  const getTotalEmotion = (): Emotion | null => {
     if (selectedEmotions.length === 0) return null;
     
     const emotionCounts: Record<string, number> = {};
@@ -109,7 +109,7 @@ function EmotionCards({ onComplete }: EmotionCardsProps) {
     return dominantEmotion;
   };
 
-  const dominantEmotion = getTotalEmotion();
+  const dominantEmotion: Emotion | null = getTotalEmotion();
 
   return (
     <div className="page-container" style={{ textAlign: 'center', padding: '2rem' }}>
