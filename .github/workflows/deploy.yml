@@ -27,13 +27,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'yarn'
 
       - name: 启用 Yarn 4 (通过 Corepack)
         run: |
           corepack enable
           corepack prepare yarn@4.16.0 --activate # 如需锁定特定版本，使用此命令
+          yarn set version 4.16.0
 
       - name: 还原依赖缓存
         uses: actions/cache@v4
